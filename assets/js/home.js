@@ -23,16 +23,14 @@
 
   /* Ouverture : lettres FADE, textes, scène produit */
   var tl = gsap.timeline({ defaults: { ease: "expo.out" } });
-  tl.from(".xh-logo .xl", { yPercent: 120, opacity: 0, duration: 1.3, stagger: .09 })
-    .from(".xh .xa", { y: 28, opacity: 0, duration: 1, stagger: .08 }, "-=0.9")
-    .from(".xh-disc", { scale: .6, opacity: 0, duration: 1.6 }, 0.2)
-    .from(".xh-bottle", { y: 120, opacity: 0, duration: 1.6 }, 0.45)
-    .from(".xh-air", { x: -80, opacity: 0, duration: 1.6 }, 0.65)
-    .from(".xh-chip", { scale: .6, opacity: 0, duration: .9, stagger: .15, ease: "back.out(2)" }, 1.1);
+  tl.from(".xh .xa", { y: 40, opacity: 0, duration: 1.2, stagger: .1 })
+    .from(".xh-bento .xt", { y: 80, opacity: 0, duration: 1.3, stagger: .1 }, 0.25)
+    .from(".xh-bento .xt img", { scale: 1.15, duration: 1.8 }, 0.25)
+    .from(".xh-word path", { yPercent: 110, duration: 1.4, stagger: .08 }, 0.5);
 
-  /* Parallaxe du hero */
-  gsap.to(".xh-stage", { yPercent: 12, ease: "none", scrollTrigger: { trigger: ".xh", start: "top top", end: "bottom top", scrub: true } });
-  gsap.to(".xh-copy", { yPercent: -10, opacity: .25, ease: "none", scrollTrigger: { trigger: ".xh", start: "top top", end: "bottom top", scrub: true } });
+  /* Grand logo : glisse au défilement */
+  gsap.to(".xh-word svg", { xPercent: -6, ease: "none", scrollTrigger: { trigger: ".xh-word", start: "top bottom", end: "bottom top", scrub: true } });
+  gsap.to(".xh-bento .xt--hero img", { yPercent: -6, ease: "none", scrollTrigger: { trigger: ".xh", start: "top top", end: "bottom top", scrub: true } });
 
   /* Sections produit : épinglées sur grand écran, arguments un par un */
   var mm = gsap.matchMedia();
@@ -41,7 +39,7 @@
       var pts = sec.querySelectorAll(".xs-points li");
       var img = sec.querySelector(".xs-media img");
       var t = gsap.timeline({ scrollTrigger: { trigger: sec, start: "top top", end: "+=" + (pts.length * 40) + "%", pin: sec.querySelector(".xs-pin"), scrub: .6 } });
-      t.from(img, { scale: .7, rotate: -6, opacity: 0, duration: 1 })
+      t.from(sec.querySelector(".xs-media"), { y: 80, scale: .9, opacity: 0, duration: 1 })
        .from(sec.querySelector(".xs-head"), { x: -60, opacity: 0, duration: .8 }, 0)
        .from(pts, { x: 60, opacity: 0, duration: .6, stagger: .5 }, .4)
        .to(img, { scale: 1.05, duration: 1 }, ">");

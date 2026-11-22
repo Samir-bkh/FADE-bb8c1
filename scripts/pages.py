@@ -50,27 +50,42 @@ ICON_WAVE='<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-wid
 ICON_STAR='<svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="20" cy="20" r="18.5"/><path d="M20 11.5c.7 4.6 3.9 7.8 8.5 8.5-4.6.7-7.8 3.9-8.5 8.5-.7-4.6-3.9-7.8-8.5-8.5 4.6-.7 7.8-3.9 8.5-8.5z"/></svg>'
 
 home=f'''<section class="xh" aria-label="FADE Barbers">
-  <div class="xh-glow" aria-hidden="true"></div>
-  <div class="wrap xh-grid">
-    <div class="xh-copy">
-      <p class="xh-eyebrow xa">Barber supply · Annemasse</p>
-      <svg class="xh-logo" viewBox="0 0 300 72" role="img" aria-label="FADE"><g fill="currentColor" fill-rule="evenodd"><path class="xl" d="M0 0h52v12H12v19h34v11H12v30H0z"/><path class="xl" d="M62 72 100 0l38 72h-14L100 26.5 76 72z"/><path class="xl" d="M152 0h30a36 36 0 0 1 0 72h-30zM164 12v48h18a24 24 0 0 0 0-48z"/><path class="xl" d="M232 0h68v12h-68zM232 30h68v12h-68zM232 60h68v12h-68z"/></g></svg>
-      <h1 class="xh-title xa">Le rendu du salon.<br><em>Chez vous.</em></h1>
-      <p class="xh-lead xa">Coloration semi-permanente prête à l'emploi et airbrush sans fil. Le matériel que nos barbiers utilisent tous les jours.</p>
-      <div class="xh-actions xa">
-        <a class="xbtn" href="boutique.html">Voir la boutique <span aria-hidden="true">→</span></a>
-        <a class="xbtn xbtn--ghost" href="produit-coloration-noir.html">Coloration · 30 €</a>
+  <div class="wrap">
+    <div class="xh-top">
+      <div class="xh-copy">
+        <p class="xh-eyebrow xa">Barber supply · Annemasse</p>
+        <h1 class="xh-title xa">Le rendu du salon,<br>chez vous.</h1>
+      </div>
+      <div class="xh-side xa">
+        <p class="xh-lead">Coloration semi-permanente prête à l'emploi et airbrush sans fil. Le matériel que nos barbiers utilisent tous les jours.</p>
+        <div class="xh-actions">
+          <a class="xbtn xbtn--dark" href="boutique.html">Voir la boutique <span aria-hidden="true">→</span></a>
+        </div>
       </div>
     </div>
-    <a class="xh-stage" href="boutique.html" aria-label="Voir les produits">
-      <span class="xh-disc" aria-hidden="true"></span>
-      <img class="xh-air" src="assets/img/products/airbrush.jpg" alt="Airbrush FADE sans fil">
-      <img class="xh-bottle" src="assets/img/products/coloration-noir-60ml.jpg" alt="Coloration semi-permanente FADE Noir 60 ml" fetchpriority="high">
-      <span class="xh-chip xh-chip--a">Prête à l'emploi</span>
-      <span class="xh-chip xh-chip--b">Sans rinçage</span>
-    </a>
+    <div class="xh-bento">
+      <a class="xt xt--hero" href="produit-coloration-noir.html">
+        <span class="xt-tag">Best-seller</span>
+        <img src="assets/img/products/coloration-noir-60ml.jpg" alt="Coloration semi-permanente FADE Noir 60 ml" fetchpriority="high">
+        <span class="xt-info"><span><i>Coloration semi-permanente</i><b>Noir · 60 ml</b></span><em>30 €</em></span>
+      </a>
+      <a class="xt xt--air" href="produit-airbrush.html">
+        <span class="xt-tag">Nouveau</span>
+        <img src="assets/img/products/airbrush.jpg" alt="Airbrush FADE sans fil">
+        <span class="xt-info"><span><i>Sans fil · USB</i><b>Airbrush FADE</b></span><em>80 €</em></span>
+      </a>
+      <a class="xt xt--dark xt--pack" href="produit-pack-4-colorations.html">
+        <i>Pack pro</i>
+        <b>4 colorations Noir</b>
+        <span class="xt-price"><em>100 €</em><s>120 €</s></span>
+        <span class="xt-arrow" aria-hidden="true">→</span>
+      </a>
+      <div class="xt xt--stat">
+        <b>0</b><span>rinçage.<br>Prête à l'emploi : on applique, c'est fini.</span>
+      </div>
+    </div>
   </div>
-  <div class="xh-scroll" aria-hidden="true"><span></span></div>
+  <div class="xh-word" aria-hidden="true">{LOGO}</div>
 </section>
 
 <div class="xm" aria-hidden="true">
@@ -104,7 +119,7 @@ home=f'''<section class="xh" aria-label="FADE Barbers">
         <h2 id="xs2-t">La précision,<br>sans fil.</h2>
         <a class="xbtn" href="produit-airbrush.html">Découvrir · 80 €</a>
       </div>
-      <div class="xs-media xs-media--disc"><img src="assets/img/products/airbrush.jpg" alt="Airbrush FADE" loading="lazy"></div>
+      <div class="xs-media"><img src="assets/img/products/airbrush.jpg" alt="Airbrush FADE" loading="lazy"></div>
       <ul class="xs-points">
         <li><b>Sans fil</b><span>Liberté totale autour du client.</span></li>
         <li><b>Rechargeable USB</b><span>Une charge, plusieurs sessions.</span></li>
