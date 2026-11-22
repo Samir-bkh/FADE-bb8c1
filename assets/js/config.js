@@ -22,14 +22,14 @@ g.FADE_CONFIG = {
   // Laisser vide pour masquer le bouton WhatsApp.
   whatsapp: "",
   // E-mail de réception, ex. "commandes@fade-barbers.fr". Vide = masqué.
-  email: "",
+  email: "jesuispassechezsouf@gmail.com",
   // Optionnel : URL d'un formulaire Formspree (https://formspree.io) pour recevoir
   // chaque commande automatiquement par e-mail, ex. "https://formspree.io/f/abcdwxyz".
   formEndpoint: "",
 
   // Livraison -----------------------------------------------------------
   currency: "EUR",
-  freeShippingFrom: 50, // livraison offerte dès ce montant (€). 0 = désactivé.
+  freeShippingFrom: 60, // livraison offerte dès ce montant (€). 0 = désactivé.
   shipping: [
     {
       id: "retrait",
@@ -53,11 +53,11 @@ g.FADE_CONFIG = {
 
   // Mentions légales (à compléter avant mise en ligne définitive) -------
   legal: {
-    company: "FADE Barbers",
-    status: "[Forme juridique — ex. micro-entreprise]",
-    siret: "[SIRET]",
-    address: "[Adresse du siège]",
-    publisher: "[Nom du responsable de la publication]",
+    company: "JE SUIS PASSE CHEZ SOUF",
+    status: "SAS",
+    siret: "899 751 150 00025",
+    address: "1 allée François Truffaut, 74100 Annemasse, France",
+    publisher: "Sofiane Boukhdimi",
     host: "Netlify, Inc., 101 2nd Street, San Francisco, CA 94105, USA — www.netlify.com"
   }
 };

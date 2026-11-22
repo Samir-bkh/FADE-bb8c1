@@ -111,7 +111,7 @@ home=f'''<section class="hero">
     <div class="section-head"><div><span class="eyebrow">Simple et rapide</span><h2>Comment commander</h2></div></div>
     <div class="steps">
       <div class="step"><span class="step-n">01</span><h3>Choisissez vos produits</h3><p class="muted">Ajoutez-les au panier depuis la boutique, sur mobile comme sur ordinateur.</p></div>
-      <div class="step"><span class="step-n">02</span><h3>Indiquez vos infos</h3><p class="muted">Retrait gratuit au salon ou livraison à domicile, offerte dès 50 €.</p></div>
+      <div class="step"><span class="step-n">02</span><h3>Indiquez vos infos</h3><p class="muted">Retrait gratuit au salon ou livraison à domicile, offerte dès 60 €.</p></div>
       <div class="step"><span class="step-n">03</span><h3>Envoyez la commande</h3><p class="muted">Votre récapitulatif nous est transmis en un clic. On vous confirme la disponibilité et le paiement.</p></div>
     </div>
   </div>
@@ -237,7 +237,7 @@ contact='''<div class="wrap">
     <div class="section-head"><div><span class="eyebrow">FAQ</span><h2>Questions fréquentes</h2></div></div>
     <div class="faq narrow" style="max-width:820px">
       <details class="acc" open><summary>Comment se passe une commande ?</summary><div class="acc-body"><p>Ajoutez vos produits au panier, renseignez vos coordonnées puis envoyez le récapitulatif (Instagram, WhatsApp ou e-mail). Nous confirmons la disponibilité et les modalités de paiement par message.</p></div></details>
-      <details class="acc"><summary>Quels sont les délais de livraison ?</summary><div class="acc-body"><p>Expédition sous 48 h ouvrées après confirmation, puis 2 à 4 jours ouvrés en Colissimo suivi. La livraison est offerte dès 50 € d'achat.</p></div></details>
+      <details class="acc"><summary>Quels sont les délais de livraison ?</summary><div class="acc-body"><p>Expédition sous 48 h ouvrées après confirmation, puis 2 à 4 jours ouvrés en Colissimo suivi. La livraison est offerte dès 60 € d'achat.</p></div></details>
       <details class="acc"><summary>Puis-je récupérer ma commande au salon ?</summary><div class="acc-body"><p>Oui, le retrait au salon est gratuit. Nous vous proposons un créneau dès que la commande est prête.</p></div></details>
       <details class="acc"><summary>La coloration convient-elle à la barbe ?</summary><div class="acc-body"><p>Oui, elle s'utilise sur les cheveux et la barbe. Faites toujours un test d'allergie 48 h avant la première application.</p></div></details>
       <details class="acc"><summary>Combien de temps tient la coloration ?</summary><div class="acc-body"><p>C'est une coloration semi-permanente : elle s'estompe progressivement au fil des lavages, en général sur deux à trois semaines selon la fréquence des shampoings.</p></div></details>
@@ -251,14 +251,15 @@ legal='''<div class="wrap narrow">
   <div class="page-head"><span class="eyebrow">Informations</span><h1>Informations légales</h1></div>
   <div class="prose">
     <h2 id="mentions">Mentions légales</h2>
-    <p><b>Éditeur du site :</b> <span data-cfg="company">FADE Barbers</span>, <span data-cfg="status"></span>. SIRET : <span data-cfg="siret"></span>. Adresse : <span data-cfg="address"></span>.</p>
-    <p><b>Responsable de la publication :</b> <span data-cfg="publisher"></span>.</p>
+    <p><b>Éditeur du site :</b> <span data-cfg="company">JE SUIS PASSE CHEZ SOUF</span>, <span data-cfg="status"></span>, exploitant la marque FADE Barbers. Siège social : <span data-cfg="address"></span>. SIRET : <span data-cfg="siret"></span> – RCS Thonon-les-Bains 899 751 150. N° de TVA intracommunautaire : FR27899751150.</p>
+    <p><b>Contact :</b> <a href="mailto:jesuispassechezsouf@gmail.com">jesuispassechezsouf@gmail.com</a> – 07 60 33 55 10.</p>
+    <p><b>Directeur de la publication :</b> <span data-cfg="publisher"></span>, président.</p>
     <p><b>Hébergement :</b> <span data-cfg="host"></span>.</p>
     <p>Les marques, logos et visuels FADE sont la propriété de leur titulaire. Toute reproduction sans autorisation est interdite.</p>
 
     <h2 id="cgv">Conditions générales de vente</h2>
     <h3>1. Objet</h3>
-    <p>Les présentes conditions régissent les ventes de produits FADE effectuées via ce site auprès de clients consommateurs.</p>
+    <p>Les présentes conditions régissent les ventes de produits FADE effectuées via ce site auprès de clients consommateurs. Le vendeur est la société JE SUIS PASSE CHEZ SOUF, SAS, 1 allée François Truffaut, 74100 Annemasse, SIRET 899 751 150 00025.</p>
     <h3>2. Commande</h3>
     <p>Le client compose son panier, renseigne ses coordonnées et transmet sa commande à la boutique. La commande devient ferme après confirmation par la boutique de la disponibilité des produits et des modalités de paiement.</p>
     <h3>3. Prix</h3>
@@ -266,9 +267,9 @@ legal='''<div class="wrap narrow">
     <h3>4. Paiement</h3>
     <p>Le paiement en ligne s'effectue par carte bancaire (CB, Visa, Mastercard), Apple Pay ou Google Pay via notre prestataire Stripe, certifié PCI-DSS niveau 1. Le paiement est sécurisé par chiffrement TLS et authentification 3D Secure ; les données bancaires sont saisies sur la page sécurisée de Stripe et ne sont jamais transmises ni conservées par FADE. Le débit intervient à la validation de la commande. En cas de retrait au salon, le paiement peut aussi être effectué sur place.</p>
     <h3 id="livraison">5. Livraison et retrait</h3>
-    <p>Retrait gratuit au salon sur rendez-vous. Livraison en France métropolitaine par Colissimo suivi sous 2 à 4 jours ouvrés après expédition ; frais indiqués au moment de la commande, offerts au-delà du seuil affiché.</p>
+    <p>Retrait gratuit au salon sur rendez-vous. Livraison en France métropolitaine par Colissimo suivi, expédition sous 48 h ouvrées puis 2 à 4 jours ouvrés d'acheminement. Frais de livraison : 5,90 €, offerts dès 60 € d'achat.</p>
     <h3>6. Droit de rétractation</h3>
-    <p>Conformément à l'article L221-18 du Code de la consommation, le client dispose de 14 jours à compter de la réception pour exercer son droit de rétractation. Pour des raisons d'hygiène, les produits descellés après livraison ne peuvent être repris (art. L221-28). Les frais de retour sont à la charge du client.</p>
+    <p>Conformément à l'article L221-18 du Code de la consommation, le client dispose de 14 jours à compter de la réception pour exercer son droit de rétractation. Pour l'exercer, le client nous informe de sa décision par e-mail (jesuispassechezsouf@gmail.com) puis renvoie le produit dans les 14 jours ; le remboursement intervient dans les 14 jours suivant la réception de sa décision, par le même moyen de paiement. Pour des raisons d'hygiène, les colorations descellées après livraison ne peuvent être reprises (art. L221-28). Les frais de retour sont à la charge du client.</p>
     <h3>7. Précautions d'emploi</h3>
     <p>Respecter les indications d'utilisation figurant sur l'emballage. Pour les colorations, un test d'allergie 48 h avant chaque application est indispensable.</p>
     <h3>8. Garanties et litiges</h3>

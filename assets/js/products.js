@@ -69,11 +69,13 @@ g.FADE_PRODUCTS = [
     badge: "Nouveau",
     featured: true,
     claims: ["Pulvérisation fine", "Sans fil", "Finition salon"],
-    desc: "L'airbrush FADE pour appliquer la coloration en pulvérisation fine : contours nets, dégradés et barbe, avec le rendu du salon.",
+    desc: "L'airbrush sans fil utilisé au salon pour les finitions : il pulvérise la coloration en un voile fin et régulier pour densifier une barbe, renforcer un contour ou fondre un dégradé, avec un rendu naturel. Rechargeable, il se prend en main comme un pistolet et se recharge en USB.",
     usage: [
-      "Remplir le flacon avec la coloration.",
-      "Pulvériser à quelques centimètres de la zone à traiter, par petites touches.",
-      "Nettoyer le flacon et la buse à l'eau après chaque utilisation."
+      "Charger l'airbrush avant la première utilisation.",
+      "Remplir le flacon avec la coloration FADE et le visser sur l'appareil.",
+      "Tenir l'airbrush à 5–10 cm de la zone et pulvériser par petites touches, en construisant l'intensité progressivement.",
+      "Utiliser un pochoir ou un peigne pour un contour net.",
+      "Rincer le flacon et faire pulvériser un peu d'eau claire après chaque utilisation pour nettoyer la buse."
     ],
     info: "Usage professionnel – Barber supply."
   }
