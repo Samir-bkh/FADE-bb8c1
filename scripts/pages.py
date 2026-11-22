@@ -61,9 +61,9 @@ home=f'''<section class="hero">
         <a class="btn btn--ghost" href="produit-coloration-noir.html">La coloration Noir</a>
       </div>
     </div>
-    <a class="hero-media" href="produit-coloration-noir.html" aria-label="Coloration semi-permanente Noir">
-      <img src="assets/img/coloration-noir.jpg" alt="Coloration semi-permanente FADE Barbers Noir, flacon et boîte sur le comptoir du salon" width="1145" height="1374" fetchpriority="high">
-      <span class="hero-tag"><b>Coloration Noir</b><span>60 ml · 30,00 €</span></span>
+    <a class="hero-media hero-media--video" href="boutique.html" aria-label="Voir la boutique">
+      <video src="assets/img/hero.mp4" poster="assets/img/hero.jpg" autoplay muted loop playsinline preload="auto" aria-label="Les colorations et l'airbrush FADE au salon"></video>
+      <span class="hero-tag"><b>Coloration &amp; Airbrush</b><span>Dès 30,00 €</span></span>
     </a>
   </div>
 </section>
