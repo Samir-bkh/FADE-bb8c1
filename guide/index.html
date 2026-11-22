@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="../assets/img/favicon.svg" type="image/svg+xml">
+<title>Guide boutique FADE</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Jost:wght@400;500&display=swap">
+<style>
+/* Layout: a single reading column, one numbered block per real step, progress pinned at top. Monochrome like the FADE packaging. */
+:root {
+  --bg: #ffffff; --fg: #0b0b0b; --muted: #61615e; --line: #e3e3e0; --surface: #f0f0ed; --label: #c9c9c5;
+  --ok: #1f7a46; --warn-bg: #f7f1e3; --warn-fg: #6b4e0e;
+  --display: "Jost", "Futura", "Century Gothic", system-ui, sans-serif;
+  --body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --mono: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --bg: #0b0b0b; --fg: #f4f4f2; --muted: #a2a29e; --line: #272726; --surface: #171716; --label: #c9c9c5;
+  --ok: #62c58d; --warn-bg: #2a2416; --warn-fg: #e8cf8f; color-scheme: dark; } }
+:root[data-theme="dark"] {
+  --bg: #0b0b0b; --fg: #f4f4f2; --muted: #a2a29e; --line: #272726; --surface: #171716; --label: #c9c9c5;
+  --ok: #62c58d; --warn-bg: #2a2416; --warn-fg: #e8cf8f; color-scheme: dark; }
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+.wrap { max-width: 760px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: 500; line-height: 1.1; margin: 0; text-wrap: balance; }
+h1 { font-size: clamp(2rem, 7vw, 3.2rem); }
+h2 { font-size: clamp(1.35rem, 4vw, 1.7rem); }
+p { margin: 0; }
+.eyebrow { font-family: var(--display); text-transform: uppercase; letter-spacing: .26em; font-size: .74rem; color: var(--muted); }
+
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 1rem; height: 58px; }
+.top svg { height: 16px; width: auto; flex: none; }
+.progress { flex: 1; display: grid; gap: 4px; min-width: 0; }
+.progress span { font-size: .78rem; color: var(--muted); font-variant-numeric: tabular-nums; text-align: right; }
+.bar { height: 3px; background: var(--line); }
+.bar i { display: block; height: 100%; width: 0; background: var(--fg); transition: width .4s ease; }
+
+header.intro { padding-block: 2.6rem 2rem; display: grid; gap: 1rem; }
+.intro .lead { color: var(--muted); font-size: 1.05rem; max-width: 60ch; }
+.site-link { display: grid; gap: .5rem; border: 1px solid var(--fg); padding: 1rem 1.1rem; }
+.site-link b { font-family: var(--display); text-transform: uppercase; letter-spacing: .18em; font-size: .78rem; font-weight: 500; }
+.site-link span { color: var(--muted); font-size: .9rem; }
+.summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.summary div { background: var(--bg); padding: .9rem 1rem; display: grid; gap: .15rem; }
+.summary b { font-family: var(--display); font-weight: 500; font-size: 1.25rem; font-variant-numeric: tabular-nums; }
+.summary span { font-size: .8rem; color: var(--muted); }
+
+.step { border-top: 1px solid var(--fg); padding-block: 1.6rem 2.2rem; display: grid; gap: 1rem; }
+.step-head { display: grid; grid-template-columns: auto 1fr; gap: .2rem 1rem; align-items: baseline; }
+.num { font-family: var(--display); font-size: 2.4rem; line-height: 1; grid-row: span 2; font-variant-numeric: tabular-nums; }
+.meta { display: flex; flex-wrap: wrap; gap: .4rem; }
+.tag { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; font-family: var(--display); border: 1px solid var(--line); padding: .15rem .55rem; }
+.tag.who { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.step.done .num { color: var(--ok); }
+.why { color: var(--muted); }
+
+ul.tasks { list-style: none; margin: 0; padding: 0; display: grid; gap: .1rem; }
+ul.tasks li { display: grid; grid-template-columns: 22px 1fr; gap: .8rem; padding: .6rem 0; border-bottom: 1px dashed var(--line); }
+ul.tasks input { width: 20px; height: 20px; margin: .15rem 0 0; accent-color: var(--fg); cursor: pointer; }
+ul.tasks label { cursor: pointer; min-width: 0; }
+ul.tasks li.checked label { color: var(--muted); }
+ul.tasks li.checked label > span:first-child { text-decoration: line-through; text-decoration-color: var(--muted); }
+.path { display: inline; font-family: var(--display); font-size: .86rem; letter-spacing: .02em; background: var(--surface); padding: .1rem .4rem; white-space: normal; }
+code { font-family: var(--mono); font-size: .86em; background: var(--surface); padding: .1rem .35rem; word-break: break-all; }
+.sub { display: block; color: var(--muted); font-size: .88rem; margin-top: .15rem; }
+
+.note { padding: .9rem 1rem; background: var(--surface); font-size: .92rem; display: grid; gap: .3rem; }
+.note.warn { background: var(--warn-bg); color: var(--warn-fg); }
+.note b { font-weight: 600; }
+.card { border: 1px solid var(--line); padding: .9rem 1rem; display: grid; grid-template-columns: auto 1fr; gap: .2rem 1rem; font-size: .92rem; }
+.card dt { color: var(--muted); }
+.card dd { margin: 0; font-family: var(--mono); font-size: .88rem; word-break: break-all; }
+
+.daily { background: var(--fg); color: var(--bg); padding-block: 2.4rem; margin-top: 1rem; }
+.daily .wrap { display: grid; gap: 1rem; }
+.daily .eyebrow { color: color-mix(in srgb, var(--bg) 60%, transparent); }
+.daily ul { margin: 0; padding-left: 1.1rem; display: grid; gap: .4rem; }
+footer { padding-block: 2rem 3rem; color: var(--muted); font-size: .82rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
+.reset { background: none; border: 1px solid var(--line); color: var(--muted); padding: .35rem .8rem; border-radius: 999px; cursor: pointer; font: inherit; font-size: .8rem; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+
+<div class="top"><div class="wrap">
+  <svg viewBox="0 0 300 72" role="img" aria-label="FADE"><g fill="currentColor" fill-rule="evenodd"><path d="M0 0h52v12H12v19h34v11H12v30H0z"/><path d="M62 72 100 0l38 72h-14L100 26.5 76 72z"/><path d="M152 0h30a36 36 0 0 1 0 72h-30zM164 12v48h18a24 24 0 0 0 0-48z"/><path d="M232 0h68v12h-68zM232 30h68v12h-68zM232 60h68v12h-68z"/></g></svg>
+  <div class="progress"><span id="count">0 / 0 étapes cochées</span><div class="bar"><i id="bar"></i></div></div>
+</div></div>
+
+<main class="wrap">
+  <header class="intro">
+    <span class="eyebrow">Boutique FADE Barbers</span>
+    <h1>Ce qu'il te reste à faire pour vendre en ligne</h1>
+    <p class="lead">Le site est construit et déjà en ligne : boutique, panier, paiement par carte, pages légales. Il reste les étapes qui demandent ton identité, ton compte bancaire ou tes comptes à toi. Coche au fur et à mesure, ta progression est gardée sur ton téléphone.</p>
+    <div class="site-link">
+      <b>Voir le site</b>
+      <span>Ouvre le lien du site que Samir t'a envoyé avec ce guide (il finit par <code>.netlify.app</code> tant que tu n'as pas de nom de domaine).</span>
+    </div>
+    <div class="summary" aria-label="En résumé">
+      <div><b>≈ 1 h 30</b><span>de travail au total</span></div>
+      <div><b>≈ 10 €/an</b><span>le nom de domaine</span></div>
+      <div><b>1,5 % + 0,25 €</b><span>commission Stripe par paiement (carte européenne)</span></div>
+      <div><b>0 €</b><span>hébergement Netlify</span></div>
+    </div>
+  </header>
+
+  <section class="step" data-step>
+    <div class="step-head"><span class="num">1</span><h2>Récupérer le site sur ton compte</h2>
+      <div class="meta"><span class="tag who">Avec Samir</span><span class="tag">10 min</span></div></div>
+    <p class="why">Le site est hébergé chez Netlify sur le compte de Samir. Il faut qu'il soit sur le tien pour que tu puisses y brancher ton paiement.</p>
+    <ul class="tasks">
+      <li><input type="checkbox" id="t1a"><label for="t1a"><span>Crée un compte gratuit sur <a href="https://app.netlify.com/signup" target="_blank" rel="noopener">netlify.com</a></span><span class="sub">« Sign up with email » suffit.</span></label></li>
+      <li><input type="checkbox" id="t1b"><label for="t1b"><span>Samir transfère le site vers ton compte</span><span class="sub">Lui, sur Netlify : <span class="path">le site → Site configuration → General → Transfer site</span>, puis il choisit ton équipe.</span></label></li>
+      <li><input type="checkbox" id="t1c"><label for="t1c"><span>Le site apparaît dans ton tableau de bord Netlify</span><span class="sub">L'adresse du site est écrite en haut de la page du site.</span></label></li>
+    </ul>
+  </section>
+
+  <section class="step" data-step>
+    <div class="step-head"><span class="num">2</span><h2>Ouvrir ton compte de paiement Stripe</h2>
+      <div class="meta"><span class="tag who">Toi</span><span class="tag">30 min</span><span class="tag">validation 1 à 3 jours</span></div></div>
+    <p class="why">Stripe encaisse les paiements par carte, Apple Pay et Google Pay, puis vire l'argent sur ton compte bancaire. Les données de carte des clients restent chez Stripe, jamais sur le site.</p>
+    <ul class="tasks">
+      <li><input type="checkbox" id="t2a"><label for="t2a"><span>Crée ton compte sur <a href="https://dashboard.stripe.com/register" target="_blank" rel="noopener">stripe.com</a></span></label></li>
+      <li><input type="checkbox" id="t2b"><label for="t2b"><span>Active le compte</span><span class="sub">Stripe demande : pièce d'identité, statut de l'entreprise et SIRET (une micro-entreprise suffit), IBAN, description de l'activité (« vente de produits de coiffure »).</span></label></li>
+      <li><input type="checkbox" id="t2c"><label for="t2c"><span>Copie ta clé secrète</span><span class="sub"><span class="path">Développeurs → Clés API → Clé secrète → Révéler</span>. Elle commence par <code>sk_live_</code>. Pour faire un essai d'abord, active le « mode test » en haut à droite : la clé commence alors par <code>sk_test_</code>.</span></label></li>
+    </ul>
+    <div class="note warn"><b>Ta clé secrète, c'est comme le code de ta carte bancaire.</b><span>Ne l'envoie à personne, ni par message, ni par e-mail, ni à une IA. Tu la colles uniquement dans Netlify (étape 3).</span></div>
+  </section>
+
+  <section class="step" data-step>
+    <div class="step-head"><span class="num">3</span><h2>Brancher Stripe sur le site</h2>
+      <div class="meta"><span class="tag who">Toi</span><span class="tag">5 min</span></div></div>
+    <ul class="tasks">
+      <li><input type="checkbox" id="t3a"><label for="t3a"><span>Ajoute la clé dans Netlify</span><span class="sub"><span class="path">le site → Site configuration → Environment variables → Add a variable</span></span></label></li>
+      <li><input type="checkbox" id="t3b"><label for="t3b"><span>Remplis exactement comme ceci</span>
+        <dl class="card"><dt>Key</dt><dd>STRIPE_SECRET_KEY</dd><dt>Value</dt><dd>ta clé sk_live_… (ou sk_test_…)</dd></dl></label></li>
+      <li><input type="checkbox" id="t3c"><label for="t3c"><span>Relance le site</span><span class="sub"><span class="path">Deploys → Trigger deploy → Deploy site</span>, puis attends 1 minute.</span></label></li>
+      <li><input type="checkbox" id="t3d"><label for="t3d"><span>Vérifie que c'est actif</span><span class="sub">Ouvre l'adresse du site suivie de <code>/api/status</code>. Tu dois voir <code>"payments":true</code>.</span></label></li>
+    </ul>
+    <p class="why">Tant que la clé n'est pas là, le site marche quand même : les clients envoient leur commande par Instagram et paient au salon.</p>
+  </section>
+
+  <section class="step" data-step>
+    <div class="step-head"><span class="num">4</span><h2>Faire une commande d'essai</h2>
+      <div class="meta"><span class="tag who">Toi</span><span class="tag">5 min</span></div></div>
+    <ul class="tasks">
+      <li><input type="checkbox" id="t4a"><label for="t4a"><span>Avec une clé <code>sk_test_</code> : commande un produit et paie avec la carte de test</span>
+        <dl class="card"><dt>Numéro</dt><dd>4242 4242 4242 4242</dd><dt>Date</dt><dd>n'importe quelle date future</dd><dt>CVC</dt><dd>123</dd></dl></label></li>
+      <li><input type="checkbox" id="t4b"><label for="t4b"><span>Tu arrives sur la page « Merci, c'est validé »</span></label></li>
+      <li><input type="checkbox" id="t4c"><label for="t4c"><span>La commande apparaît dans Stripe → Paiements</span></label></li>
+      <li><input type="checkbox" id="t4d"><label for="t4d"><span>Remplace la clé test par ta clé <code>sk_live_</code> et relance le site (étape 3)</span><span class="sub">À partir de là, les paiements sont réels.</span></label></li>
+    </ul>
+  </section>
+
+  <section class="step" data-step>
+    <div class="step-head"><span class="num">5</span><h2>Recevoir les commandes et envoyer les reçus</h2>
+      <div class="meta"><span class="tag who">Toi</span><span class="tag">5 min</span></div></div>
+    <ul class="tasks">
+      <li><input type="checkbox" id="t5a"><label for="t5a"><span>Reçus automatiques aux clients</span><span class="sub">Stripe : <span class="path">Paramètres → E-mails clients → Paiements réussis</span> : activer.</span></label></li>
+      <li><input type="checkbox" id="t5b"><label for="t5b"><span>Être prévenu à chaque vente</span><span class="sub">Stripe : <span class="path">Paramètres → Notifications</span> : cocher « Paiements réussis ». Installe aussi l'appli Stripe sur ton téléphone.</span></label></li>
+    </ul>
+  </section>
+
+  <section class="step" data-step>
+    <div class="step-head"><span class="num">6</span><h2>Avoir ta propre adresse</h2>
+      <div class="meta"><span class="tag who">Toi</span><span class="tag">15 min</span><span class="tag">≈ 10 €/an</span></div></div>
+    <p class="why">Une adresse comme <code>fade-barbers.fr</code> fait plus sérieux et se retient mieux. Le cadenas HTTPS est installé automatiquement.</p>
+    <ul class="tasks">
+      <li><input type="checkbox" id="t6a"><label for="t6a"><span>Achète le nom</span><span class="sub">Le plus simple : directement dans Netlify, <span class="path">Domains → Register a domain</span>. Sinon chez OVH ou Gandi.</span></label></li>
+      <li><input type="checkbox" id="t6b"><label for="t6b"><span>Relie-le au site</span><span class="sub"><span class="path">le site → Domain management → Add a domain</span>, puis suis les instructions affichées.</span></label></li>
+      <li><input type="checkbox" id="t6c"><label for="t6c"><span>Relance le site une fois le domaine actif</span><span class="sub">Le plan du site pour Google se met alors à jour avec ta nouvelle adresse.</span></label></li>
+    </ul>
+  </section>
+
+  <section class="step" data-step>
+    <div class="step-head"><span class="num">7</span><h2>Être trouvé sur Google</h2>
+      <div class="meta"><span class="tag who">Toi</span><span class="tag">20 min</span><span class="tag">effet en 1 à 4 semaines</span></div></div>
+    <p class="why">Le site est déjà préparé pour Google (une page par produit, prix et disponibilité lisibles par Google). Il faut juste le lui présenter.</p>
+    <ul class="tasks">
+      <li><input type="checkbox" id="t7a"><label for="t7a"><span>Ajoute le site dans <a href="https://search.google.com/search-console" target="_blank" rel="noopener">Google Search Console</a></span><span class="sub">Choisis « Domaine » si tu as ton nom de domaine, suis la vérification.</span></label></li>
+      <li><input type="checkbox" id="t7b"><label for="t7b"><span>Envoie le plan du site</span><span class="sub"><span class="path">Sitemaps → Ajouter</span> : tape <code>sitemap.xml</code> puis Envoyer.</span></label></li>
+      <li><input type="checkbox" id="t7c"><label for="t7c"><span>Crée ou complète la fiche <a href="https://business.google.com" target="_blank" rel="noopener">Google Business Profile</a> du salon</span><span class="sub">Ajoute le lien du site. C'est ce qui fait sortir le salon et la boutique quand on cherche dans ta ville.</span></label></li>
+      <li><input type="checkbox" id="t7d"><label for="t7d"><span>Mets le lien dans la bio Instagram @jesuispassechezsouf</span></label></li>
+    </ul>
+  </section>
+
+  <section class="step" data-step>
+    <div class="step-head"><span class="num">8</span><h2>Mettre tes vraies infos</h2>
+      <div class="meta"><span class="tag who">Avec Samir</span><span class="tag">15 min</span></div></div>
+    <p class="why">Obligatoire avant de vendre : la loi impose des mentions légales exactes.</p>
+    <ul class="tasks">
+      <li><input type="checkbox" id="t8a"><label for="t8a"><span>Donne à Samir : statut de l'entreprise, SIRET, adresse, nom du responsable</span></label></li>
+      <li><input type="checkbox" id="t8b"><label for="t8b"><span>Vérifie la liste des produits et les prix</span><span class="sub">Seule la coloration Noir est réelle aujourd'hui. Les autres produits et tous les prix sont des exemples à remplacer.</span></label></li>
+      <li><input type="checkbox" id="t8c"><label for="t8c"><span>Envoie tes photos produits si tu en as</span><span class="sub">Elles remplaceront les visuels dessinés.</span></label></li>
+    </ul>
+  </section>
+</main>
+
+<section class="daily">
+  <div class="wrap">
+    <span class="eyebrow">Ensuite, au quotidien</span>
+    <h2>Quand quelqu'un commande</h2>
+    <ul>
+      <li>Tu reçois une notification Stripe. La commande est dans <b>Stripe → Paiements</b> : articles, nom, téléphone, adresse.</li>
+      <li>Retrait au salon : contacte le client pour fixer le créneau. Livraison : expédie sous 48 h.</li>
+      <li>Commandes « paiement au retrait » : elles arrivent en message Instagram.</li>
+      <li>L'argent est viré automatiquement sur ton compte (environ 7 jours après la première vente, puis tous les 2 à 3 jours).</li>
+    </ul>
+  </div>
+</section>
+
+<footer class="wrap">
+  <span>Guide FADE Barbers · boutique en ligne</span>
+  <button class="reset" type="button" id="reset">Tout décocher</button>
+</footer>
+
+<script src="guide.js"></script>
+</body>
+</html>
