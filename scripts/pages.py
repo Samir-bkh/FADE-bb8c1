@@ -63,7 +63,7 @@ home=f'''<section class="hero">
     </div>
     <a class="hero-media" href="produit-coloration-noir.html" aria-label="Coloration semi-permanente Noir">
       <img src="assets/img/coloration-noir.jpg" alt="Coloration semi-permanente FADE Barbers Noir, flacon et boîte sur le comptoir du salon" width="1145" height="1374" fetchpriority="high">
-      <span class="hero-tag"><b>Coloration Noir</b><span>100 ml · 14,90 €</span></span>
+      <span class="hero-tag"><b>Coloration Noir</b><span>60 ml · 30,00 €</span></span>
     </a>
   </div>
 </section>
