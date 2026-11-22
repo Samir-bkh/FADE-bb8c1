@@ -303,9 +303,11 @@
       bindAdd(g);
     }
     var cats = $("#cats");
-    if (cats) cats.innerHTML = CATS.filter(function (c) { return c.id !== "coffret"; }).map(function (c) {
-      var n = PRODUCTS.filter(function (p) { return p.category === c.id; }).length;
-      return '<a class="cat" href="boutique.html#' + c.id + '"><i>' + n + " produit" + (n > 1 ? "s" : "") + "</i><div><b>" + c.label + "</b><br><span>" + c.desc + "</span></div></a>";
+    if (cats) cats.innerHTML = CATS.map(function (c) {
+      var list = PRODUCTS.filter(function (p) { return p.category === c.id; });
+      if (!list.length) return "";
+      var n = list.length, img = list[0].images && list[0].images[0];
+      return '<a class="cat" href="boutique.html#' + c.id + '">' + (img ? '<span class="cat-media"><img src="' + img + '" alt="" loading="lazy"></span>' : "") + '<span class="cat-body"><i>' + n + " produit" + (n > 1 ? "s" : "") + "</i><b>" + c.label + "</b><span>" + c.desc + "</span></span></a>";
     }).join("");
   };
 
