@@ -105,7 +105,7 @@
   function media(p, idx) {
     var list = [];
     if (p.images) p.images.forEach(function (src) { list.push('<img src="' + src + '" alt="' + esc(p.name) + '" loading="lazy" decoding="async">'); });
-    list.push(art(p));
+    if (!list.length) list.push(art(p));
     return idx === undefined ? list : list[Math.min(idx, list.length - 1)];
   }
   function cardMedia(p) { return media(p, 0); }

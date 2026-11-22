@@ -28,10 +28,9 @@ g.FADE_PRODUCTS = [
     claims: ["Pigments riches", "Résultat naturel", "Longue tenue"],
     desc: "La coloration utilisée au salon pour redessiner un contour, densifier une barbe ou intensifier un dégradé. Son embout fin permet un tracé précis, ligne par ligne.",
     usage: [
-      "Faire un test d'allergie 48 h avant la première utilisation.",
-      "Appliquer sur cheveux ou barbe propres et secs à l'aide de l'embout.",
-      "Laisser poser 5 à 15 minutes selon l'intensité souhaitée.",
-      "Rincer abondamment à l'eau tiède."
+      "Produit déjà mélangé, prêt à l'emploi.",
+      "Appliquer directement à l'aide de l'embout.",
+      "Pas besoin de rincer."
     ],
     info: "Usage professionnel – Barber supply. Composition complète indiquée sur l'emballage."
   },
@@ -52,7 +51,7 @@ g.FADE_PRODUCTS = [
     desc: "Quatre flacons de coloration semi-permanente Noir 60 ml à prix réduit. Le bon format pour les barbiers ou pour ne jamais tomber à court.",
     usage: [
       "Contient : 4 × Coloration semi-permanente Noir 60 ml.",
-      "Faire un test d'allergie 48 h avant la première utilisation."
+      "Produit déjà mélangé : appliquer directement, pas besoin de rincer."
     ],
     info: "Voir la fiche Coloration semi-permanente Noir pour le détail d'utilisation."
   },
