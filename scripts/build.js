@@ -123,6 +123,6 @@ for (const f of indexable.concat(["commande.html", "merci.html", "produit.html"]
 // 3. sitemap + robots
 const urls = indexable.map((f) => (f === "index.html" ? `${SITE}/` : abs(f))).concat(productFiles.map(abs));
 write("sitemap.xml", `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.map((u) => `  <url><loc>${u}</loc><lastmod>${today}</lastmod></url>`).join("\n")}\n</urlset>\n`);
-write("robots.txt", `User-agent: *\nAllow: /\nDisallow: /commande.html\nDisallow: /merci.html\nDisallow: /api/\n\nSitemap: ${SITE}/sitemap.xml\n`);
+write("robots.txt", `User-agent: *\nAllow: /\nDisallow: /commande.html\nDisallow: /merci.html\nDisallow: /api/\nDisallow: /guide/\n\nSitemap: ${SITE}/sitemap.xml\n`);
 
 console.log(`FADE build OK — ${productFiles.length} pages produit, site : ${SITE}`);
