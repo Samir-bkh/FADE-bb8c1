@@ -3,5 +3,6 @@ Allow: /
 Disallow: /commande.html
 Disallow: /merci.html
 Disallow: /api/
+Disallow: /guide/
 
 Sitemap: https://fade-barbers.netlify.app/sitemap.xml

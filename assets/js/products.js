@@ -8,10 +8,8 @@
 (function (g) {
 g.FADE_CATEGORIES = [
   { id: "coloration", label: "Coloration", desc: "Semi-permanente, pigments riches." },
-  { id: "coiffage", label: "Coiffage", desc: "Cires, pommades, textures." },
-  { id: "soin", label: "Soin", desc: "Cheveux et cuir chevelu." },
-  { id: "barbe", label: "Barbe", desc: "Huiles et finitions." },
-  { id: "coffret", label: "Coffrets", desc: "Les essentiels réunis." }
+  { id: "accessoire", label: "Accessoires", desc: "Le matériel du salon." },
+  { id: "coffret", label: "Packs", desc: "Les essentiels en lot." }
 ];
 
 g.FADE_PRODUCTS = [
@@ -21,10 +19,10 @@ g.FADE_PRODUCTS = [
     label: ["COLORATION", "SEMI-PERMANENTE"],
     variant: "NOIR",
     category: "coloration",
-    price: 14.9,
-    size: "100 ml · 3.4 fl.oz",
+    price: 30,
+    size: "60 ml · 2.0 fl.oz",
     kind: "nozzle",
-    images: ["assets/img/coloration-noir.jpg"],
+    images: ["assets/img/products/coloration-noir-60ml.jpg"],
     badge: "Best-seller",
     featured: true,
     claims: ["Pigments riches", "Résultat naturel", "Longue tenue"],
@@ -38,146 +36,46 @@ g.FADE_PRODUCTS = [
     info: "Usage professionnel – Barber supply. Composition complète indiquée sur l'emballage."
   },
   {
-    id: "cire-mate",
-    name: "Cire Matte",
-    label: ["CIRE", "MATTE"],
-    variant: "FIXATION FORTE",
-    category: "coiffage",
-    price: 12.9,
-    size: "100 ml",
-    kind: "jar",
-    featured: true,
-    claims: ["Fini mat", "Tenue forte", "Se recoiffe"],
-    desc: "Une cire à l'effet poudré, sans brillance, pour des coiffures texturées qui tiennent toute la journée sans figer.",
-    usage: [
-      "Chauffer une noisette de produit entre les paumes.",
-      "Travailler sur cheveux secs, des racines vers les pointes.",
-      "Structurer avec les doigts ou un peigne."
-    ],
-    info: "Se rince à l'eau. Composition complète indiquée sur l'emballage."
-  },
-  {
-    id: "pommade-brillance",
-    name: "Pommade Brillance",
-    label: ["POMMADE", "BRILLANCE"],
-    variant: "FIXATION MOYENNE",
-    category: "coiffage",
-    price: 12.9,
-    size: "100 ml",
-    kind: "jar",
-    claims: ["Fini brillant", "Base eau", "Rinçage facile"],
-    desc: "Pour les coiffures plaquées, side part et looks classiques. Une brillance nette, une tenue souple.",
-    usage: [
-      "Appliquer sur cheveux secs ou légèrement humides.",
-      "Peigner pour un fini net, retravailler dans la journée si besoin."
-    ],
-    info: "Composition complète indiquée sur l'emballage."
-  },
-  {
-    id: "poudre-texturisante",
-    name: "Poudre Texturisante",
-    label: ["POUDRE", "TEXTURISANTE"],
-    variant: "VOLUME",
-    category: "coiffage",
-    price: 11.9,
-    size: "20 g",
-    kind: "tall",
-    featured: true,
-    claims: ["Volume instantané", "Invisible", "Fini mat"],
-    desc: "Quelques pincées aux racines suffisent pour un volume immédiat et une matière légère, idéale sur cheveux fins.",
-    usage: [
-      "Saupoudrer directement sur les racines, cheveux secs.",
-      "Masser du bout des doigts pour activer la texture."
-    ],
-    info: "Composition complète indiquée sur l'emballage."
-  },
-  {
-    id: "spray-sel-de-mer",
-    name: "Spray Sel de Mer",
-    label: ["SPRAY", "SEL DE MER"],
-    variant: "TEXTURE",
-    category: "coiffage",
-    price: 12.9,
-    size: "200 ml",
-    kind: "spray",
-    claims: ["Effet décoiffé", "Pré-coiffant", "Léger"],
-    desc: "Le pré-coiffant qui donne du corps et du mouvement avant le séchage. Parfait avant une cire matte.",
-    usage: [
-      "Vaporiser sur cheveux humides.",
-      "Sécher au diffuseur ou à la main pour un effet naturel."
-    ],
-    info: "Composition complète indiquée sur l'emballage."
-  },
-  {
-    id: "shampoing-quotidien",
-    name: "Shampoing Quotidien",
-    label: ["SHAMPOING", "QUOTIDIEN"],
-    variant: "TOUS CHEVEUX",
-    category: "soin",
-    price: 11.9,
-    size: "250 ml",
-    kind: "tall",
-    claims: ["Doux", "Usage fréquent", "Cuir chevelu sain"],
-    desc: "Un shampoing doux qui nettoie sans assécher, pensé pour un usage quotidien et pour éliminer cires et pommades.",
-    usage: [
-      "Appliquer sur cheveux mouillés, faire mousser.",
-      "Rincer. Renouveler si nécessaire."
-    ],
-    info: "Composition complète indiquée sur l'emballage."
-  },
-  {
-    id: "huile-a-barbe",
-    name: "Huile à Barbe",
-    label: ["HUILE", "À BARBE"],
-    variant: "NOURRISSANTE",
-    category: "barbe",
-    price: 13.9,
-    size: "30 ml",
-    kind: "dropper",
-    featured: true,
-    claims: ["Nourrit", "Assouplit", "Non grasse"],
-    desc: "Discipline et adoucit la barbe, apaise la peau en dessous. Une finition propre après chaque taille.",
-    usage: [
-      "Déposer 3 à 5 gouttes dans la paume.",
-      "Masser dans la barbe jusqu'à la peau, puis peigner."
-    ],
-    info: "Composition complète indiquée sur l'emballage."
-  },
-  {
-    id: "lotion-apres-rasage",
-    name: "Lotion Après-Rasage",
-    label: ["LOTION", "APRÈS-RASAGE"],
-    variant: "APAISANTE",
-    category: "barbe",
-    price: 12.9,
-    size: "100 ml",
-    kind: "spray",
-    claims: ["Apaise", "Rafraîchit", "Finition salon"],
-    desc: "La finition fraîche du salon, à la maison. Calme le feu du rasoir et laisse la peau nette.",
-    usage: [
-      "Vaporiser sur la peau propre après le rasage.",
-      "Laisser pénétrer sans rincer."
-    ],
-    info: "Composition complète indiquée sur l'emballage."
-  },
-  {
-    id: "coffret-essentiel",
-    name: "Coffret L'Essentiel",
-    label: ["COFFRET", "L'ESSENTIEL"],
-    variant: "3 PRODUITS",
+    id: "pack-4-colorations",
+    name: "Pack 4 Colorations Noir",
+    label: ["PACK", "4 COLORATIONS"],
+    variant: "NOIR",
     category: "coffret",
-    price: 34.9,
-    compareAt: 41.7,
-    size: "Coloration Noir + Cire Matte + Huile à Barbe",
+    price: 100,
+    compareAt: 120,
+    size: "4 × 60 ml",
     kind: "box",
-    badge: "-16 %",
-    featured: false,
-    claims: ["Prêt à offrir", "3 best-sellers", "Économie"],
-    desc: "Les trois produits les plus demandés au salon, réunis dans un coffret prêt à offrir.",
+    images: ["assets/img/products/coloration-noir-60ml.jpg"],
+    badge: "-17 %",
+    featured: true,
+    claims: ["4 flacons", "Économie", "Idéal pour les pros"],
+    desc: "Quatre flacons de coloration semi-permanente Noir 60 ml à prix réduit. Le bon format pour les barbiers ou pour ne jamais tomber à court.",
     usage: [
-      "Contient : Coloration semi-permanente Noir 100 ml, Cire Matte 100 ml, Huile à Barbe 30 ml."
+      "Contient : 4 × Coloration semi-permanente Noir 60 ml.",
+      "Faire un test d'allergie 48 h avant la première utilisation."
     ],
-    info: "Voir chaque produit pour le détail d'utilisation."
+    info: "Voir la fiche Coloration semi-permanente Noir pour le détail d'utilisation."
+  },
+  {
+    id: "airbrush",
+    name: "Airbrush FADE",
+    label: ["AIRBRUSH", "SANS FIL"],
+    variant: "NOIR & OR",
+    category: "accessoire",
+    price: 80,
+    size: "Livré avec son flacon",
+    kind: "spray",
+    images: ["assets/img/products/airbrush.jpg"],
+    badge: "Nouveau",
+    featured: true,
+    claims: ["Pulvérisation fine", "Sans fil", "Finition salon"],
+    desc: "L'airbrush FADE pour appliquer la coloration en pulvérisation fine : contours nets, dégradés et barbe, avec le rendu du salon.",
+    usage: [
+      "Remplir le flacon avec la coloration.",
+      "Pulvériser à quelques centimètres de la zone à traiter, par petites touches.",
+      "Nettoyer le flacon et la buse à l'eau après chaque utilisation."
+    ],
+    info: "Usage professionnel – Barber supply."
   }
 ];
 if (typeof module === "object" && module.exports) module.exports = { categories: g.FADE_CATEGORIES, products: g.FADE_PRODUCTS };

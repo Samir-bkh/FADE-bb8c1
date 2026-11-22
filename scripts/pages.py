@@ -55,7 +55,7 @@ home=f'''<section class="hero">
       <div class="hero-logo">{LOGO}</div>
       <p class="hero-sub">Barbers</p>
       <h1 class="sr-only">FADE Barbers, produits de coiffure professionnels</h1>
-      <p class="lead">Coloration, coiffage, soin de la barbe. Des produits pensés au salon pour un résultat net, naturel et qui tient, maintenant disponibles chez vous.</p>
+      <p class="lead">Coloration semi-permanente et airbrush. Le matériel utilisé au salon pour un résultat net, naturel et qui tient, maintenant disponible chez vous.</p>
       <div class="hero-actions">
         <a class="btn" href="boutique.html">Voir la boutique</a>
         <a class="btn btn--ghost" href="produit-coloration-noir.html">La coloration Noir</a>
@@ -116,7 +116,7 @@ home=f'''<section class="hero">
     </div>
   </div>
 </section>'''
-page("index.html","FADE Barbers","FADE Barbers, produits de coiffure professionnels : coloration semi-permanente, cires, soins barbe. Commandez en ligne, retrait au salon ou livraison.","home",home)
+page("index.html","FADE Barbers","FADE Barbers, produits de coiffure professionnels : coloration semi-permanente et airbrush. Commandez en ligne, retrait au salon ou livraison.","home",home)
 
 shop='''<div class="wrap">
   <div class="page-head">
@@ -140,7 +140,7 @@ shop='''<div class="wrap">
   <div class="grid grid--4" id="shop-grid"></div>
   <div style="height:3rem"></div>
 </div>'''
-page("boutique.html","Boutique FADE","Toute la gamme FADE Barbers : coloration, coiffage, soin, barbe et coffrets.","shop",shop)
+page("boutique.html","Boutique FADE","Toute la gamme FADE Barbers : coloration semi-permanente, packs et airbrush.","shop",shop)
 
 page("produit.html","Produit FADE","Fiche produit FADE Barbers.","product",'<div class="wrap" id="pdp-root"></div>')
 
@@ -205,7 +205,7 @@ about=f'''<div class="wrap narrow">
   <div class="prose">
     <p class="lead">FADE est née derrière le fauteuil, chez <span data-cfg="owner">jesuispassechezsouf</span>. L'idée : proposer aux clients les mêmes produits que ceux utilisés pendant la coupe, sans compromis sur le résultat.</p>
     <h2>Une gamme courte, des produits qui servent</h2>
-    <p>Pas de catalogue à rallonge. Chaque produit répond à un besoin précis du quotidien d'un barbier : redessiner un contour avec la coloration semi-permanente, texturer avec la cire matte, discipliner la barbe avec l'huile.</p>
+    <p>Pas de catalogue à rallonge. Chaque produit répond à un besoin précis du quotidien d'un barbier : redessiner un contour ou densifier une barbe avec la coloration semi-permanente, l'appliquer en pulvérisation fine avec l'airbrush.</p>
     <h2>Testé sur de vrais clients</h2>
     <p>Avant d'arriver sur la boutique, chaque référence passe des semaines au salon. On garde ce qui tient, ce qui reste naturel et ce que les clients redemandent.</p>
     <h2>Minimaliste, par choix</h2>
