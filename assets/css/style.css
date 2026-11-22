@@ -410,3 +410,7 @@ textarea.input { min-height: 92px; resize: vertical; }
 
 /* Vidéo d'accueil (portrait) */
 .hero-media--video video { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 60%; }
+
+/* L'image remplit exactement son cadre (évite qu'elle déborde et soit coupée) */
+.card-media, .gallery-main, .cat-media, .thumb, .line-item .li-media, .sum-item .li-media { position: relative; }
+.card-media img, .gallery-main img, .cat-media img, .thumb img, .line-item .li-media img, .sum-item .li-media img { position: absolute; inset: 0; width: 100%; height: 100%; }
