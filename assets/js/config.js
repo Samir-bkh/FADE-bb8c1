@@ -27,6 +27,11 @@ g.FADE_CONFIG = {
   // chaque commande automatiquement par e-mail, ex. "https://formspree.io/f/abcdwxyz".
   formEndpoint: "",
 
+  // Statistiques de visite (Umami Cloud, gratuit, sans cookie) ----------
+  // Créer un compte sur https://cloud.umami.is, ajouter le site, puis coller ici
+  // le "Website ID" (ex. "a1b2c3d4-...."). Vide = statistiques désactivées.
+  umamiWebsiteId: "",
+
   // Livraison -----------------------------------------------------------
   currency: "EUR",
   freeShippingFrom: 60, // livraison offerte dès ce montant (€). 0 = désactivé.

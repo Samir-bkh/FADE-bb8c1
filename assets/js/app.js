@@ -110,8 +110,46 @@
   }
   function cardMedia(p) { return media(p, 0); }
 
+  /* ---------- statistiques (Umami, sans cookie) ---------- */
+  var statQueue = [];
+  function track(name, data) {
+    if (!CFG.umamiWebsiteId) return;
+    try {
+      if (window.umami && window.umami.track) window.umami.track(name, data);
+      else statQueue.push([name, data]);
+    } catch (e) { /* les statistiques ne doivent jamais bloquer le site */ }
+  }
+  function loadStats() {
+    if (!CFG.umamiWebsiteId) return;
+    var s = document.createElement("script");
+    s.defer = true;
+    s.src = "https://cloud.umami.is/script.js";
+    s.setAttribute("data-website-id", CFG.umamiWebsiteId);
+    s.onload = function () {
+      var tries = 0;
+      (function flush() {
+        if (window.umami && window.umami.track) { statQueue.splice(0).forEach(function (e) { window.umami.track(e[0], e[1]); }); }
+        else if (tries++ < 20) setTimeout(flush, 250);
+      })();
+    };
+    document.head.appendChild(s);
+    // Temps passé : un événement par palier d'engagement (30 s, 1 min, 3 min, 5 min)
+    var marks = [30, 60, 180, 300], visible = 0, last = Date.now();
+    setInterval(function () {
+      if (document.visibilityState === "visible") visible += (Date.now() - last) / 1000;
+      last = Date.now();
+      while (marks.length && visible >= marks[0]) track("temps-sur-page", { secondes: marks.shift(), page: location.pathname });
+    }, 5000);
+    // Profondeur de défilement : 50 % et 90 %
+    var depths = [50, 90];
+    window.addEventListener("scroll", function () {
+      var h = document.documentElement, pct = (h.scrollTop + innerHeight) / h.scrollHeight * 100;
+      while (depths.length && pct >= depths[0]) track("defilement", { pourcent: depths.shift(), page: location.pathname });
+    }, { passive: true });
+  }
+
   /* ---------- cart ---------- */
-  var cart = (store(CART_KEY) || []).filter(function (l) { return byId(l.id) && l.qty > 0; });
+  var cart =(store(CART_KEY) || []).filter(function (l) { return byId(l.id) && l.qty > 0; });
   function saveCart() { store(CART_KEY, cart); renderCartUI(); }
   function addToCart(id, qty) {
     qty = Math.max(1, qty || 1);
@@ -120,10 +158,12 @@
     saveCart();
     var c = $(".cart-count"); if (c) { c.classList.remove("bump"); void c.offsetWidth; c.classList.add("bump"); }
     var p = byId(id);
+    track("ajout-panier", { produit: p.name, quantite: qty, prix: p.price, page: location.pathname });
     toast(esc(p.name) + " ajouté au panier", "Voir", openCart);
   }
   function setQty(id, qty) {
-    cart = cart.map(function (l) { if (l.id === id) l.qty = Math.min(99, qty); return l; }).filter(function (l) { return l.qty > 0; });
+    if (qty <= 0) { var rp = byId(id); if (rp) track("retrait-panier", { produit: rp.name }); }
+    cart =cart.map(function (l) { if (l.id === id) l.qty = Math.min(99, qty); return l; }).filter(function (l) { return l.qty > 0; });
     saveCart();
   }
   function count() { return cart.reduce(function (s, l) { return s + l.qty; }, 0); }
@@ -223,6 +263,7 @@
   function openCart() {
     var d = $("#cart-drawer"); if (!d) return;
     d.classList.add("open"); d.setAttribute("aria-hidden", "false"); $(".scrim").classList.add("open");
+    track("ouverture-panier", { articles: count(), montant: Math.round(subtotal() * 100) / 100 });
     document.body.style.overflow = "hidden";
     setTimeout(function () { var c = $("[data-close-cart].icon-btn", d); if (c) c.focus(); }, 50);
   }
@@ -334,6 +375,7 @@
     chips.addEventListener("click", function (e) {
       var b = e.target.closest(".chip"); if (!b) return;
       filter = b.getAttribute("data-f");
+      track("filtre-boutique", { categorie: filter });
       try { history.replaceState(null, "", filter === "all" ? location.pathname : "#" + filter); } catch (err) { /* ignore */ }
       render();
     });
@@ -352,6 +394,7 @@
         return;
       }
       document.title = p.name + " — FADE";
+      track("vue-produit", { produit: p.name, prix: p.price });
       var md = media(p), qty = 1;
       root.innerHTML =
         '<nav class="breadcrumb" aria-label="Fil d\'Ariane"><a href="boutique.html">Boutique</a><span>/</span><a href="boutique.html#' + p.category + '">' + esc(catLabel(p.category)) + "</a><span>/</span><span>" + esc(p.name) + "</span></nav>" +
@@ -504,6 +547,7 @@
       order.text = lines.join("\n");
       store(ORDER_KEY, order);
 
+      track("validation-commande", { paiement: pay.label, livraison: sh.label, articles: count(), montant: order.total });
       if (pay.online && payReady) {
         var btn = form.querySelector('button[type="submit"]'), label = btn.textContent;
         btn.disabled = true; btn.textContent = "Redirection vers le paiement sécurisé…"; payMsg("");
@@ -541,7 +585,11 @@
       $("#send-grid").innerHTML = btns.join("");
       $("#ig-hint").hidden = !CFG.instagram;
       var igB = $("[data-ig]");
-      if (igB) igB.addEventListener("click", function () { copyText(order.text, true); });
+      if (igB) igB.addEventListener("click", function () { track("commande-envoyee", { canal: "instagram", montant: order.total }); copyText(order.text, true); });
+      $$("#send-grid a").forEach(function (a) {
+        if (a.hasAttribute("data-ig")) return;
+        a.addEventListener("click", function () { track("commande-envoyee", { canal: /wa\.me/.test(a.href) ? "whatsapp" : "email", montant: order.total }); });
+      });
       $("#copy-recap").addEventListener("click", function () { copyText(order.text); });
       window.scrollTo(0, 0);
 
@@ -570,7 +618,15 @@
       .then(function (r) { return r.json(); })
       .then(function (o) {
         if (o.error) return fail(o.error);
-        if (o.paid) { cart = []; saveCart(); store("fade_checkout_draft", null); }
+        if (o.paid) {
+          cart = []; saveCart(); store("fade_checkout_draft", null);
+          // Une seule fois par commande (si le client recharge la page)
+          var seen = store("fade_tracked_orders") || [];
+          if (seen.indexOf(o.order) === -1) {
+            track("achat", { revenue: o.total, currency: "EUR", commande: o.order, articles: o.items.reduce(function (s, it) { return s + it.qty; }, 0), livraison: o.delivery });
+            seen.push(o.order); store("fade_tracked_orders", seen.slice(-20));
+          }
+        }
         var retrait = o.delivery === "retrait";
         root.innerHTML =
           '<div class="confirm-badge">' + I.check + "</div>" +
@@ -589,6 +645,7 @@
 
   /* ---------- boot ---------- */
   document.addEventListener("DOMContentLoaded", function () {
+    loadStats();
     renderChrome();
     renderCartUI();
     var page = document.body.getAttribute("data-page");

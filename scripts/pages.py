@@ -330,7 +330,7 @@ legal='''<div class="wrap narrow">
 
     <h2 id="confidentialite">Politique de confidentialité</h2>
     <p>Les informations saisies lors d'une commande (nom, téléphone, e-mail, adresse) servent uniquement à traiter et livrer la commande. Elles ne sont ni revendues ni utilisées à des fins publicitaires sans votre accord.</p>
-    <p>Le panier est enregistré uniquement dans votre navigateur (stockage local) et n'est transmis à personne tant que vous ne validez pas votre commande. Le site n'utilise ni cookie publicitaire ni outil de suivi : aucun bandeau cookies n'est donc nécessaire.</p>
+    <p>Le panier est enregistré uniquement dans votre navigateur (stockage local) et n'est transmis à personne tant que vous ne validez pas votre commande. Le site n'utilise aucun cookie. Pour mesurer sa fréquentation (pages vues, durée de visite, ajouts au panier), il utilise Umami, un outil de statistiques sans cookie qui ne collecte aucune donnée personnelle et ne permet pas de vous identifier : aucun bandeau cookies n'est donc nécessaire.</p>
     <p>Les paiements sont traités par Stripe Payments Europe Ltd., qui agit en tant que responsable de traitement pour les données de paiement (voir stripe.com/fr/privacy). Les données de commande sont conservées le temps nécessaire à la gestion de la commande et aux obligations comptables (10 ans).</p>
     <p>Conformément au RGPD, vous pouvez demander l'accès, la rectification ou la suppression de vos données en nous contactant via la page <a href="contact.html">Contact</a>.</p>
   </div>

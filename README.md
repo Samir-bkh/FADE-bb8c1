@@ -38,3 +38,12 @@ Sans clé Stripe, le site fonctionne quand même : la commande est envoyée par 
 ```
 npx netlify-cli dev     # site + fonctions sur http://localhost:8888
 ```
+
+## Statistiques (Umami, gratuit, sans cookie)
+1. Créer un compte sur https://cloud.umami.is (offre gratuite « Hobby »).
+2. *Add website* : nom FADE, domaine du site. Copier le **Website ID**.
+3. Le coller dans `assets/js/config.js` → `umamiWebsiteId`.
+
+Mesuré automatiquement : visiteurs, pages vues, durée de visite, provenance (Instagram, Google…), appareil, pays,
+et les événements : `vue-produit`, `ajout-panier`, `retrait-panier`, `ouverture-panier`, `filtre-boutique`,
+`validation-commande`, `commande-envoyee`, `achat` (avec chiffre d'affaires), `temps-sur-page`, `defilement`.
