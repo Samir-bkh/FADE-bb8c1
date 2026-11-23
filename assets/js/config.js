@@ -30,7 +30,7 @@ g.FADE_CONFIG = {
   // Statistiques de visite (Umami Cloud, gratuit, sans cookie) ----------
   // Créer un compte sur https://cloud.umami.is, ajouter le site, puis coller ici
   // le "Website ID" (ex. "a1b2c3d4-...."). Vide = statistiques désactivées.
-  umamiWebsiteId: "",
+  umamiWebsiteId: "e9e9e044-a677-4ae9-b4c5-573c974ef192",
 
   // Livraison -----------------------------------------------------------
   currency: "EUR",
